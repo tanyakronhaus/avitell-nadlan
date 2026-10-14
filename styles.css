@@ -1,0 +1,286 @@
+/* ===== ממשבר להזדמנות — TELL.DAVID ===== */
+
+:root {
+  --bg: #0B0B0A;
+  --text: #F4F1EA;
+  --text-soft: #C9C4B8;
+  --muted: #8A857B;
+  --line: #E4DFD3;
+  --accent: #E5484D;
+  --gold: #E8C547;
+  --stroke-num: #3A3732;
+
+  --font-body: 'Heebo', Arial, sans-serif;
+  --font-num: 'Barlow Condensed', Arial, sans-serif;
+
+  --gutter: clamp(16px, 5vw, 96px);
+  --fs-body: clamp(17px, 1.45vw, 28px);
+  --fs-body-lg: clamp(19px, 1.75vw, 34px);
+  --fs-lead: clamp(20px, 1.75vw, 34px);
+  --fs-pill: clamp(16px, 1.9vw, 36px);
+  --fs-hero: clamp(44px, 6.7vw, 128px);
+  --fs-sub: clamp(19px, 1.9vw, 36px);
+  --fs-small: clamp(13px, 1.25vw, 24px);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  background: var(--bg);
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+
+/* ---------- Slide ---------- */
+
+.slide {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vh, 48px);
+  padding: clamp(20px, 5vh, 56px) var(--gutter) clamp(24px, 5vh, 64px);
+  scroll-snap-align: start;
+  border-bottom: 1px solid rgba(244, 241, 234, 0.06);
+}
+
+/* ---------- Header pill ---------- */
+
+.pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: clamp(56px, 5.8vw, 112px);
+  padding: 10px clamp(18px, 2.5vw, 48px);
+  border: 3px solid var(--line);
+  border-radius: 999px;
+}
+
+.pill-label {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.25vw, 24px);
+  min-width: 0;
+}
+
+.burst {
+  flex: none;
+  width: clamp(28px, 2.9vw, 56px);
+  height: clamp(28px, 2.9vw, 56px);
+  color: var(--text);
+}
+
+.pill-title {
+  font-size: var(--fs-pill);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+/* כותרת של נושא חדש — מודגשת; כותרת "המשך" — רגילה */
+.pill-title.is-new { font-weight: 700; }
+
+.logo {
+  flex: none;
+  width: clamp(120px, 15vw, 288px);
+  height: auto;
+}
+
+/* ---------- Body ---------- */
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vh, 36px);
+  padding-top: clamp(8px, 4vh, 48px);
+}
+
+.accent-bar {
+  width: clamp(56px, 5vw, 96px);
+  height: 6px;
+  background: var(--accent);
+}
+
+.content p {
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--text-soft);
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.content strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* שני טורים */
+.cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 3.3vw, 64px);
+  align-items: start;
+}
+
+.col-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.content p.lead {
+  font-size: var(--fs-lead);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+/* טור אחד + מספר שקף גדול */
+.single {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1180px) 1fr;
+  gap: clamp(32px, 4vw, 80px);
+  align-items: start;
+}
+
+.content .single p {
+  font-size: var(--fs-body-lg);
+  line-height: 1.55;
+}
+
+.big-num {
+  align-self: end;
+  justify-self: end;
+  font-family: var(--font-num);
+  font-weight: 900;
+  font-size: clamp(120px, 16.7vw, 320px);
+  line-height: 0.9;
+  color: transparent;
+  -webkit-text-stroke: 3px var(--stroke-num);
+  user-select: none;
+}
+
+/* ---------- Footer ---------- */
+
+.slide-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--fs-small);
+  color: var(--muted);
+}
+
+.slide-foot .num {
+  font-family: var(--font-num);
+  font-weight: 600;
+  letter-spacing: 2px;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* ---------- Cover ---------- */
+
+.cover .content {
+  justify-content: flex-start;
+  gap: clamp(20px, 3.5vh, 40px);
+}
+
+.cover h1 {
+  font-size: var(--fs-hero);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--text);
+}
+
+.cover h1 .dot { color: var(--accent); }
+
+.cover .subtitle {
+  font-size: var(--fs-sub);
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--text-soft);
+  text-align: right;
+  max-width: 1300px;
+}
+
+.cover .byline {
+  font-size: clamp(17px, 1.6vw, 30px);
+  line-height: 1.4;
+  color: var(--text-soft);
+  text-align: right;
+}
+
+.contacts {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  list-style: none;
+}
+
+.contacts li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: clamp(15px, 1.45vw, 28px);
+  color: var(--text);
+}
+
+.contacts .ic {
+  width: clamp(24px, 1.9vw, 36px);
+  height: clamp(24px, 1.9vw, 36px);
+  color: var(--gold);
+  flex: none;
+}
+
+.contacts a { color: inherit; text-decoration: none; }
+.contacts .ltr { direction: ltr; }
+
+/* ---------- Placeholders for future media ----------
+   להוספת תמונה/אנימציה בשקף עם טור אחד:
+   החליפי את <span class="big-num"> ב-<figure class="media"><img src="..." alt="..."></figure> */
+.media {
+  align-self: stretch;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.media img, .media video { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  html { scroll-snap-type: none; }
+  .slide { min-height: auto; padding-top: 24px; padding-bottom: 32px; }
+  .cols, .single { grid-template-columns: 1fr; }
+  .big-num { display: none; }
+  .pill { border-radius: 28px; }
+  .contacts { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 520px) {
+  .pill { flex-wrap: wrap; justify-content: flex-start; }
+  .logo { width: 110px; }
+}
+
+/* ---------- Print / PDF ---------- */
+
+@media print {
+  html { scroll-snap-type: none; }
+  .slide { min-height: 100vh; page-break-after: always; break-after: page; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
