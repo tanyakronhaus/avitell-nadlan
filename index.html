@@ -26,6 +26,25 @@
   </symbol>
 </svg>
 
+<!-- כותרת קבועה: נשארת למעלה בזמן הגלילה. הטקסט מתחלף לפי השקף הנוכחי (נלקח מה-.pill של כל שקף), והחצים עוברים בין השקפים. מופעלת ע״י script.js -->
+<div class="topbar" id="topbar" hidden>
+  <header class="pill">
+    <div class="pill-label"><svg class="burst" aria-hidden="true"><use href="#burst"/></svg><p class="pill-title" id="pill-title">הנדסה שיווקית</p></div>
+    <div class="pill-end">
+      <nav class="pill-nav" aria-label="ניווט בין שקפים">
+        <button type="button" class="nav-btn" id="nav-prev" aria-label="לשקף הקודם">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>
+        </button>
+        <span class="nav-count" id="nav-count">01 / 31</span>
+        <button type="button" class="nav-btn" id="nav-next" aria-label="לשקף הבא">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </nav>
+      <img class="logo" src="assets/telldavid-logo.png" alt="TELL.DAVID">
+    </div>
+  </header>
+</div>
+
 <main>
 
 <!-- ===== 01 | שער ===== -->
